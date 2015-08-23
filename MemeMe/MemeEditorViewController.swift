@@ -10,6 +10,7 @@ import UIKit
 
 class MemeEditorViewController: UIViewController, UINavigationControllerDelegate {
 
+    var meme: Meme?
     let memeTextAttributes = [
         NSStrokeWidthAttributeName: -3.0,
         NSForegroundColorAttributeName: UIColor.whiteColor(),
@@ -56,6 +57,16 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         super.viewWillAppear(animated)
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         subscribeToKeyboardNotifications()
+        
+        // if our editor is passed in a meme set the memes values
+        if let existingMeme = meme {
+            topTextInput.text = existingMeme.topText
+            bottomTextInput.text = existingMeme.bottomText
+            memeImageView.image = existingMeme.image
+            topInputIsDirty = true
+            bottomInputIsDirty = true
+            shareButton.enabled = true
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -153,8 +164,17 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
     }
     
     func save() {
-        var meme = Meme(topText: topTextInput.text, bottomText: bottomTextInput.text, image: memeImageView.image!, memedImage: memedImage)
-        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+        
+        if let existingMeme = meme {
+            existingMeme.topText = topTextInput.text
+            existingMeme.bottomText = bottomTextInput.text
+            existingMeme.image = memeImageView.image!
+            existingMeme.memedImage = memedImage
+        } else{
+            var newMeme = Meme(topText: topTextInput.text, bottomText: bottomTextInput.text, image: memeImageView.image!, memedImage: memedImage)
+            (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(newMeme)
+        }
+        
     }
     
 }
