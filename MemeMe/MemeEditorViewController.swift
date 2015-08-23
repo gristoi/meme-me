@@ -70,11 +70,6 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         memeImageView.contentMode = .ScaleAspectFit
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     //MARK: all actions from the view
     @IBAction func launchCamera(sender: UIBarButtonItem) {
         
@@ -131,14 +126,12 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextInput.isFirstResponder() {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        if bottomTextInput.isFirstResponder() {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
-        }
+        view.frame.origin.y = 0
     }
     
     func getKeyboardHeight(notification: NSNotification) -> CGFloat {
@@ -154,7 +147,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         bottomToolbar.hidden = true
         
         UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,afterScreenUpdates: true)
+        view.drawViewHierarchyInRect(self.view.frame,afterScreenUpdates: true)
         let memedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
