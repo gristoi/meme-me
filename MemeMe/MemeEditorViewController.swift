@@ -10,9 +10,6 @@ import UIKit
 
 class MemeEditorViewController: UIViewController, UINavigationControllerDelegate {
 
-    @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var albumPickerButton: UIBarButtonItem!
-    @IBOutlet weak var memeImageView: UIImageView!
     let memeTextAttributes = [
         NSStrokeWidthAttributeName: -3.0,
         NSForegroundColorAttributeName: UIColor.whiteColor(),
@@ -20,6 +17,15 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         NSFontAttributeName: UIFont(name: "Impact", size: 40)!
         
     ]
+    //MARK: top toolbar outlets
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+    //MARK: bottom toolbar outlets
+    @IBOutlet weak var bottomToolbar: UIToolbar!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    @IBOutlet weak var albumPickerButton: UIBarButtonItem!
+    
+    @IBOutlet weak var memeImageView: UIImageView!
     @IBOutlet weak var topTextInput: UITextField!{
         didSet {
             topTextInput.text = topTextDefaultValue
@@ -28,6 +34,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
             topTextInput.delegate = self
         }
     }
+    
     @IBOutlet weak var bottomTextInput: UITextField!{
         didSet {
             bottomTextInput.text = bottomTextDefaultValue
@@ -36,10 +43,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
             bottomTextInput.delegate = self
         }
     }
-    @IBOutlet weak var shareButton: UIBarButtonItem!
-    @IBOutlet weak var topToolbar: UIToolbar!
-    @IBOutlet weak var bottomToolbar: UIToolbar!
-    
+
     var memedImage : UIImage!
     let topTextDefaultValue = "TOP"
     let bottomTextDefaultValue = "BOTTOM"
@@ -71,6 +75,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK: all actions from the view
     @IBAction func launchCamera(sender: UIBarButtonItem) {
         
         let imagePicker = UIImagePickerController()
@@ -111,7 +116,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
-    
+    //MARK: keyboard subscriber methods
     func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillShow:", name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillHide:", name: UIKeyboardWillHideNotification, object: nil)
