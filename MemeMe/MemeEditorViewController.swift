@@ -82,13 +82,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
 
     
     @IBAction func resetMeme(sender: UIBarButtonItem) {
-        memeImageView.image = nil
-        memedImage = nil
-        topTextInput.text = topTextDefaultValue
-        topInputIsDirty = false
-        bottomTextInput.text = bottomTextDefaultValue
-        bottomInputIsDirty = false
-        shareButton.enabled = false
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func shareMeme(sender: UIBarButtonItem) {
@@ -99,6 +93,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
             (s: String!, ok: Bool, items: [AnyObject]!, err:NSError!) -> Void in
             self.save()
             activityVC.dismissViewControllerAnimated(true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
     
@@ -159,6 +154,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
     
     func save() {
         var meme = Meme(topText: topTextInput.text, bottomText: bottomTextInput.text, image: memeImageView.image!, memedImage: memedImage)
+        (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
     }
     
 }

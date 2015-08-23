@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		44AC90EA1B89F412009D09FA /* Impact.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 44AC90E91B89F412009D09FA /* Impact.ttf */; };
+		44AC90EC1B8A0ED8009D09FA /* MemeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AC90EB1B8A0ED8009D09FA /* MemeCollectionViewController.swift */; };
+		44AC90EE1B8A103A009D09FA /* MemeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AC90ED1B8A103A009D09FA /* MemeCollectionViewCell.swift */; };
+		44AC90F01B8A1B98009D09FA /* MemeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AC90EF1B8A1B98009D09FA /* MemeTableViewController.swift */; };
+		44AC90F21B8A1C4C009D09FA /* MemeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44AC90F11B8A1C4C009D09FA /* MemeDetailViewController.swift */; };
 		44CCE25C1B82087F00D859E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CCE25B1B82087F00D859E7 /* AppDelegate.swift */; };
 		44CCE25E1B82087F00D859E7 /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CCE25D1B82087F00D859E7 /* MemeEditorViewController.swift */; };
 		44CCE2611B82087F00D859E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44CCE25F1B82087F00D859E7 /* Main.storyboard */; };
@@ -29,6 +33,10 @@
 
 /* Begin PBXFileReference section */
 		44AC90E91B89F412009D09FA /* Impact.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Impact.ttf; sourceTree = "<group>"; };
+		44AC90EB1B8A0ED8009D09FA /* MemeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewController.swift; sourceTree = "<group>"; };
+		44AC90ED1B8A103A009D09FA /* MemeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCollectionViewCell.swift; sourceTree = "<group>"; };
+		44AC90EF1B8A1B98009D09FA /* MemeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeTableViewController.swift; sourceTree = "<group>"; };
+		44AC90F11B8A1C4C009D09FA /* MemeDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeDetailViewController.swift; sourceTree = "<group>"; };
 		44CCE2561B82087F00D859E7 /* MemeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44CCE25A1B82087F00D859E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44CCE25B1B82087F00D859E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +96,10 @@
 				44CCE2621B82087F00D859E7 /* Images.xcassets */,
 				44CCE2641B82087F00D859E7 /* LaunchScreen.xib */,
 				44CCE2591B82087F00D859E7 /* Supporting Files */,
+				44AC90EB1B8A0ED8009D09FA /* MemeCollectionViewController.swift */,
+				44AC90ED1B8A103A009D09FA /* MemeCollectionViewCell.swift */,
+				44AC90EF1B8A1B98009D09FA /* MemeTableViewController.swift */,
+				44AC90F11B8A1C4C009D09FA /* MemeDetailViewController.swift */,
 			);
 			path = MemeMe;
 			sourceTree = "<group>";
@@ -227,8 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44AC90EE1B8A103A009D09FA /* MemeCollectionViewCell.swift in Sources */,
 				44DAC6101B84B7DB009E37EB /* Meme.swift in Sources */,
 				44CCE25E1B82087F00D859E7 /* MemeEditorViewController.swift in Sources */,
+				44AC90F01B8A1B98009D09FA /* MemeTableViewController.swift in Sources */,
+				44AC90F21B8A1C4C009D09FA /* MemeDetailViewController.swift in Sources */,
+				44AC90EC1B8A0ED8009D09FA /* MemeCollectionViewController.swift in Sources */,
 				44CCE25C1B82087F00D859E7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
