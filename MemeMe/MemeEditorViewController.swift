@@ -88,7 +88,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
         imagePicker.editing = true
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
     
@@ -132,7 +132,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
     
     func keyboardWillShow(notification: NSNotification) {
         if bottomTextInput.isFirstResponder() {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
