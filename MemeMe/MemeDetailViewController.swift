@@ -14,10 +14,9 @@ class MemeDetailViewController: UIViewController {
     @IBOutlet weak var detailsImageView: UIImageView!
     
     @IBAction func deleteMeme(sender: UIBarButtonItem) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            if let foundIndex = find(appDelegate.memes, selectedMeme) {
+            if let foundIndex = find(MemeRepository.sharedInstance.memes, selectedMeme) {
                 //remove the item at the found index
-                appDelegate.memes.removeAtIndex(foundIndex)
+                MemeRepository.sharedInstance.memes.removeAtIndex(foundIndex)
                 navigationController?.popViewControllerAnimated(true)
             }
     }

@@ -16,7 +16,8 @@ class MemeTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        memes = appDelegate.memes
+        MemeRepository.sharedInstance.getMemes()
+        memes = MemeRepository.sharedInstance.memes
         tableView?.reloadData()
     }
     
@@ -39,4 +40,5 @@ class MemeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return memes.count
     }
+    
 }
