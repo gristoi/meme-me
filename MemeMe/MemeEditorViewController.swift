@@ -101,7 +101,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
         let activityVC = UIActivityViewController(activityItems:[memedImage],applicationActivities:nil)
         presentViewController(activityVC, animated: true, completion: nil)
         activityVC.completionWithItemsHandler = {
-            (s: String!, ok: Bool, items: [AnyObject]!, err:NSError!) -> Void in
+            (s: String?, ok: Bool, items: [AnyObject]?, err:NSError?) -> Void in
             self.save()
             activityVC.dismissViewControllerAnimated(true, completion: nil)
             self.dismissViewControllerAnimated(true, completion: nil)
@@ -171,7 +171,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
             existingMeme.image = memeImageView.image!
             existingMeme.memedImage = memedImage
         } else{
-            var newMeme = Meme(topText: topTextInput.text, bottomText: bottomTextInput.text, image: memeImageView.image!, memedImage: memedImage)
+            let newMeme = Meme(topText: topTextInput.text!, bottomText: bottomTextInput.text!, image: memeImageView.image!, memedImage: memedImage)
             MemeRepository.sharedInstance.memes.append(newMeme)
             MemeRepository.sharedInstance.persistMemes()
         }
@@ -182,7 +182,7 @@ class MemeEditorViewController: UIViewController, UINavigationControllerDelegate
 
 extension MemeEditorViewController:  UIImagePickerControllerDelegate {
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.memeImageView.image = image
             dismissViewControllerAnimated(true, completion: nil)

@@ -26,7 +26,7 @@ class Meme: NSObject, NSCoding {
     
     //MARK: NSCoding
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         topText = aDecoder.decodeObjectForKey("topText") as! String
         bottomText = aDecoder.decodeObjectForKey("bottomText") as! String
         image = aDecoder.decodeObjectForKey("image") as! UIImage

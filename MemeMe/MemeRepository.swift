@@ -17,8 +17,8 @@ class MemeRepository {
     func getMemes() {
         let filemgr = NSFileManager.defaultManager()
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let docsDir = dirPaths[0] as! String
-        let dataFilePath = docsDir.stringByAppendingPathComponent("memes")
+        let docsDir = dirPaths[0]
+        let dataFilePath = (docsDir as NSString).stringByAppendingPathComponent("memes")
         if filemgr.fileExistsAtPath(dataFilePath) {
             memes = NSKeyedUnarchiver.unarchiveObjectWithFile(dataFilePath) as! [Meme]
         }
@@ -26,10 +26,9 @@ class MemeRepository {
     }
     
     func persistMemes() {
-        let filemgr = NSFileManager.defaultManager()
         let dirPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
-        let docsDir = dirPaths[0] as! String
-        let dataFilePath = docsDir.stringByAppendingPathComponent("memes")
+        let docsDir = dirPaths[0]
+        let dataFilePath = (docsDir as NSString).stringByAppendingPathComponent("memes")
         NSKeyedArchiver.archiveRootObject(memes, toFile: dataFilePath)
     }
 
